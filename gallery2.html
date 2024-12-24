@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Cards with Auto-Close</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    
+    a {
+            text-decoration: none;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #F29E23 !important;
+            transform: scale(1.1);
+        }
+
+        .nav-link.active {
+            font-weight: bold;
+            color: yellow !important; 
+        }
+
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar:hover {
+            background-color: #006400; 
+        }
+
+
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .animated-header {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 10s linear infinite;
+        }
+
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        .card-img-top {
+            object-fit: cover;
+            height: 200px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animated-card {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        footer {
+            background-color: #6b8000;
+            color: white;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 576px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<main class="container py-5">
+    <header class="bg-success text-white text-center py-3 d-flex flex-column align-items-center">
+        <div class="d-flex align-items-center">
+            <img src="images/logo.png" alt="Logo" class="img-fluid" style="max-height: 100px; margin-right: 15px;"> <!-- Logo -->
+            <div>
+                <h1 class="mb-0">National Parks Web Portal</h1>
+                <p class="mb-0">Discover the beauty of wildlife and nature!</p>
+            </div>
+        </div>
+    </header>
+
+        <!-- Navbar Section -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="safari-timings.html">Animals</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Gallery</a>
+                            <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                                <li><a class="dropdown-item" href="gallery.html">Photo Gallery</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="location.html">Location</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    <div class="container py-5">
+        <div class="row g-4" id="accordionExample">
+            <!-- Card 1 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g1.webp" class="card-img-top" alt="Card 1" data-bs-toggle="collapse" data-bs-target="#info1" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Tiger</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info1" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong> "Experience an unforgettable encounter with Bengal tigers in their natural habitat. Watch as these majestic creatures prowl the dusty forest paths, offering a rare glimpse into the wild life of India's national animal."</p>
+                </div>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g2.jpg" class="card-img-top" alt="Card 2" data-bs-toggle="collapse" data-bs-target="#info2" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Painted Storks</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info2" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>"Marvel at these elegant Painted Storks, known for their distinctive pink-tinged feathers and vibrant orange beaks. These social birds gather near water bodies, creating a stunning display of nature's artistry as they search for their next meal."</p>
+                </div>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g3.jpg" class="card-img-top" alt="Card 3" data-bs-toggle="collapse" data-bs-target="#info3" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Deer</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info3" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>"A majestic spotted deer relaxes in the lush green meadow, displaying its impressive antlers and distinctive white-spotted coat. Also known as Chital, these graceful creatures are a common sight in India's wildlife sanctuaries."</p>
+                </div>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g4.jpg" class="card-img-top" alt="Card 4" data-bs-toggle="collapse" data-bs-target="#info4" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Tiger in the Wild</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info4" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>Experience the raw beauty of a Bengal tiger roaming its natural habitat. Captured during a thrilling jungle safari, this image highlights the magnificence of wildlife conservation efforts</p>
+                </div>
+            </div>
+    
+            <!-- Card 5 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g5.jpg" class="card-img-top" alt="Card 5" data-bs-toggle="collapse" data-bs-target="#info5" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Stag</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info5" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A majestic stag roaming freely in the National Wildlife Park, showcasing the beauty of preserved wildlife in its natural environment</p>
+                </div>
+            </div>
+    
+            <!-- Card 6 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g6.jpg" class="card-img-top" alt="Card 6" data-bs-toggle="collapse" data-bs-target="#info6" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Penguin</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info6" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A charming penguin enjoying its icy habitat in the National Wildlife Park, a true representation of resilience and adaptability in the wild.</p>
+                </div>
+            </div>
+    
+            <!-- Card 7 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g7.jpg" class="card-img-top" alt="Card 7" data-bs-toggle="collapse" data-bs-target="#info7" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Highland Cow</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info7" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>This is a Highland Cow with its distinctive long, shaggy reddish-brown coat and impressive curved horns, standing in a field of tall grass. The dramatic cloudy sky provides a perfect backdrop for this majestic Scottish breed, known for its hardy nature and unique appearance.</p>
+                </div>
+            </div>
+    
+            <!-- Card 8 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g8.jpg" class="card-img-top" alt="Card 8" data-bs-toggle="collapse" data-bs-target="#info8" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">monkey</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info8" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A curious young monkey meets its own reflection in a hand-held mirror, creating a captivating moment of natural wonder. With its light brown fur, expressive eyes, and gentle grasp of the mirror, this thoughtful moment captures the remarkable intelligence and self-awareness found in our primate relatives.</p>
+                </div>
+            </div>
+    
+            <!-- Card 9 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g9.jpg" class="card-img-top" alt="Card 9" data-bs-toggle="collapse" data-bs-target="#info9" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Dolphin</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info9" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A graceful dolphin leaping through the waters of the National Wildlife Park, symbolizing intelligence and beauty in marine life.</p>
+                </div>
+            </div>
+    
+            <!-- Card 10 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g10.jpg" class="card-img-top" alt="Card 10" data-bs-toggle="collapse" data-bs-target="#info10" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Eagle</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info10" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A majestic eagle soaring high above the National Wildlife Park, embodying strength, vision, and the spirit of freedom in the wild.</p>
+                </div>
+            </div>
+    
+            <!-- Card 11 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g11.jpg" class="card-img-top" alt="Card 11" data-bs-toggle="collapse" data-bs-target="#info11" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Rabbit</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info11" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A cute and agile rabbit hopping around the lush greenery of the National Wildlife Park, showcasing the charm of nature's small wonders</p>
+                </div>
+            </div>
+    
+            <!-- Card 12 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g12.jpg" class="card-img-top" alt="Card 12" data-bs-toggle="collapse" data-bs-target="#info12" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Elephant</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info12" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A magnificent elephant wandering gracefully in the National Wildlife Park, representing strength, wisdom, and the beauty of the wild.</p>
+                </div>
+            </div>
+    
+            <!-- Card 13 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g13.jpg" class="card-img-top" alt="Card 13" data-bs-toggle="collapse" data-bs-target="#info13" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Fox</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info13" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A sly and graceful fox roaming the National Wildlife Park, showcasing its agility and cunning nature in the heart of the wild.</p>
+                </div>
+            </div>
+    
+            <!-- Card 14 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g14.jpg" class="card-img-top" alt="Card 14" data-bs-toggle="collapse" data-bs-target="#info14" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Parrot</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info14" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A vibrant parrot perched gracefully in the National Wildlife Park, symbolizing the colorful beauty and intelligence of avian wildlife.</p>
+                </div>
+            </div>
+    
+            <!-- Card 15 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g15.jpg" class="card-img-top" alt="Card 15" data-bs-toggle="collapse" data-bs-target="#info15" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Wolf</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info15" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A fierce and majestic wolf prowling through the National Wildlife Park, embodying the spirit of teamwork and survival in the wilderness.</p>
+                </div>
+            </div>
+    
+            <!-- Card 16 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g16.jpg" class="card-img-top" alt="Card 16" data-bs-toggle="collapse" data-bs-target="#info16" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Zebra</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info16" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A striking zebra grazing peacefully in the National Wildlife Park, showcasing the unique beauty of its black-and-white striped coat.</p>
+                </div>
+            </div>
+    
+            <!-- Card 17 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g17.jpg" class="card-img-top" alt="Card 17" data-bs-toggle="collapse" data-bs-target="#info17" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Black Horse</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info17" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A majestic black horse galloping freely in the National Wildlife Park, symbolizing strength, grace, and the untamed spirit of the wild.</p>
+                </div>
+            </div>
+    
+            <!-- Card 18 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g18.jpg" class="card-img-top" alt="Card 18" data-bs-toggle="collapse" data-bs-target="#info18" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Duck</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info18" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A charming duck gliding gracefully across the serene waters of the National Wildlife Park, a symbol of tranquility and natural beauty.</p>
+                </div>
+            </div>
+    
+            <!-- Card 19 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g19.jpg" class="card-img-top" alt="Card 19" data-bs-toggle="collapse" data-bs-target="#info19" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Snake (Savanna Bites)</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info19" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A delightful snack inspired by the endless beauty of the savanna, offering a taste of nature’s pure, bold flavors with every bite.</p>
+                </div>
+            </div>
+    
+            <!-- Card 20 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g20.jpg" class="card-img-top" alt="Card 20" data-bs-toggle="collapse" data-bs-target="#info20" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Butterfly Bites</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info20" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>Like a delicate butterfly fluttering through a blooming garden, these bites offer a light, flavorful escape into nature's sweetness.</p>
+
+                </div>
+            </div>
+    
+            <!-- Card 21 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g21.jpg" class="card-img-top" alt="Card 21" data-bs-toggle="collapse" data-bs-target="#info21" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Piggy</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info21" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>Inspired by the playful charm of a piglet, these treats bring a hearty and delightful flavor that’s simply irresistible.</p>
+                </div>
+            </div>
+    
+            <!-- Card 22 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g22.jpg" class="card-img-top" alt="Card 22" data-bs-toggle="collapse" data-bs-target="#info22" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">Rhinos</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info22" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>Two magnificent rhinos grazing peacefully in the wilderness, a true testament to strength and harmony in nature.</p>
+                </div>
+            </div>
+    
+            <!-- Card 23 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g23.jpg" class="card-img-top" alt="Card 23" data-bs-toggle="collapse" data-bs-target="#info23" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">The Majestic White Lion</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info23" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A rare and regal presence in the wild, the white lion symbolizes courage, grace, and the untouched beauty of nature.</p>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 animated-card">
+                <div class="card h-35">
+                    <img src="images/g24.jpg" class="card-img-top" alt="Card 24" data-bs-toggle="collapse" data-bs-target="#info24" data-bs-parent="#accordionExample">
+                    <div class="card-body">
+                        <h5 class="card-title">The Playful Panda</h5>
+                        <p class="card-text">Click the image for details.</p>
+                        <a href="location.html" class="btn bg-warning">Go to Location</a>
+                    </div>
+                </div>
+                <div id="info24" class="collapse info-box p-3 bg-light border rounded">
+                    <p><strong>More Info:</strong>A gentle giant of the wild, the panda charms hearts with its playful nature and symbolizes peace and harmony in the natural world.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    
+</main>
+
+<footer class="text-center py-3 mt-4">
+    <p>&copy; 2024 Interactive Cards. All Rights Reserved.</p>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const currentPage = window.location.pathname.split("/").pop();
+        
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active");
+            }
+        });
+    });
+</script>
+</body>
+</html>
